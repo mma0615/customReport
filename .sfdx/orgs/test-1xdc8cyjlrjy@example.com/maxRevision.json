@@ -1,0 +1,173 @@
+{
+    "serverMaxRevisionCounter": 305,
+    "sourceMembers": {
+        "ListView__ShiftTemplate.All_ShiftTemplates": {
+            "serverRevisionCounter": 300,
+            "lastRetrievedFromServer": null,
+            "memberType": "ListView",
+            "isNameObsolete": false
+        },
+        "ListView__ShiftTemplate.My_ShiftTemplates": {
+            "serverRevisionCounter": 301,
+            "lastRetrievedFromServer": null,
+            "memberType": "ListView",
+            "isNameObsolete": false
+        },
+        "ListView__ShiftTemplate.My_RecentShiftTemplates": {
+            "serverRevisionCounter": 302,
+            "lastRetrievedFromServer": null,
+            "memberType": "ListView",
+            "isNameObsolete": false
+        },
+        "ListView__ProductServiceCampaignItem.All_ProductServiceCampaignItems": {
+            "serverRevisionCounter": 303,
+            "lastRetrievedFromServer": null,
+            "memberType": "ListView",
+            "isNameObsolete": false
+        },
+        "ListView__ProductServiceCampaignItem.My_ProductServiceCampaignItems": {
+            "serverRevisionCounter": 304,
+            "lastRetrievedFromServer": null,
+            "memberType": "ListView",
+            "isNameObsolete": false
+        },
+        "ListView__ProductServiceCampaignItem.My_RecentProductServiceCampaignItems": {
+            "serverRevisionCounter": 305,
+            "lastRetrievedFromServer": null,
+            "memberType": "ListView",
+            "isNameObsolete": false
+        },
+        "Prompt__standard__ServiceCloudTrialChatterGuide": {
+            "serverRevisionCounter": 259,
+            "lastRetrievedFromServer": null,
+            "memberType": "Prompt",
+            "isNameObsolete": false
+        },
+        "Prompt__standard__ServiceCloudTrialDashboardGuide": {
+            "serverRevisionCounter": 261,
+            "lastRetrievedFromServer": null,
+            "memberType": "Prompt",
+            "isNameObsolete": false
+        },
+        "Prompt__standard__SalesCloudCoreHomepage": {
+            "serverRevisionCounter": 263,
+            "lastRetrievedFromServer": null,
+            "memberType": "Prompt",
+            "isNameObsolete": false
+        },
+        "Prompt__standard__SalesCloudCoreChatterTab": {
+            "serverRevisionCounter": 265,
+            "lastRetrievedFromServer": null,
+            "memberType": "Prompt",
+            "isNameObsolete": false
+        },
+        "Prompt__standard__SalesCloudCoreReportsTab": {
+            "serverRevisionCounter": 267,
+            "lastRetrievedFromServer": null,
+            "memberType": "Prompt",
+            "isNameObsolete": false
+        },
+        "Prompt__standard__ServiceCloudTrialHomepageGuide": {
+            "serverRevisionCounter": 269,
+            "lastRetrievedFromServer": null,
+            "memberType": "Prompt",
+            "isNameObsolete": false
+        },
+        "Prompt__standard__ServiceCloudCoreHomepage": {
+            "serverRevisionCounter": 271,
+            "lastRetrievedFromServer": null,
+            "memberType": "Prompt",
+            "isNameObsolete": false
+        },
+        "Prompt__standard__SalesCloudTrialChatterGuide": {
+            "serverRevisionCounter": 273,
+            "lastRetrievedFromServer": null,
+            "memberType": "Prompt",
+            "isNameObsolete": false
+        },
+        "Prompt__standard__SalesCloudTrialContactsListViewsVideo": {
+            "serverRevisionCounter": 275,
+            "lastRetrievedFromServer": null,
+            "memberType": "Prompt",
+            "isNameObsolete": false
+        },
+        "Prompt__standard__SalesCloudTrialHomePage": {
+            "serverRevisionCounter": 277,
+            "lastRetrievedFromServer": null,
+            "memberType": "Prompt",
+            "isNameObsolete": false
+        },
+        "Prompt__standard__ServiceCloudCoreCases": {
+            "serverRevisionCounter": 279,
+            "lastRetrievedFromServer": null,
+            "memberType": "Prompt",
+            "isNameObsolete": false
+        },
+        "Prompt__standard__SalesCloudCoreContactsTab": {
+            "serverRevisionCounter": 281,
+            "lastRetrievedFromServer": null,
+            "memberType": "Prompt",
+            "isNameObsolete": false
+        },
+        "Prompt__standard__ServiceCloudCoreChatter": {
+            "serverRevisionCounter": 283,
+            "lastRetrievedFromServer": null,
+            "memberType": "Prompt",
+            "isNameObsolete": false
+        },
+        "Prompt__standard__ReleaseReadinessSales": {
+            "serverRevisionCounter": 285,
+            "lastRetrievedFromServer": null,
+            "memberType": "Prompt",
+            "isNameObsolete": false
+        },
+        "Prompt__standard__SalesCloudTrailPreconfiguredDashboardsGuide": {
+            "serverRevisionCounter": 287,
+            "lastRetrievedFromServer": null,
+            "memberType": "Prompt",
+            "isNameObsolete": false
+        },
+        "Prompt__standard__ServiceCloudCoreReportsTab": {
+            "serverRevisionCounter": 289,
+            "lastRetrievedFromServer": null,
+            "memberType": "Prompt",
+            "isNameObsolete": false
+        },
+        "Prompt__standard__ServiceCloudTrialCasesTab": {
+            "serverRevisionCounter": 291,
+            "lastRetrievedFromServer": null,
+            "memberType": "Prompt",
+            "isNameObsolete": false
+        },
+        "Prompt__standard__SalesCloudTrialKanbanVideo": {
+            "serverRevisionCounter": 293,
+            "lastRetrievedFromServer": null,
+            "memberType": "Prompt",
+            "isNameObsolete": false
+        },
+        "Prompt__standard__SalesCoreQuoteAdminCpq": {
+            "serverRevisionCounter": 295,
+            "lastRetrievedFromServer": null,
+            "memberType": "Prompt",
+            "isNameObsolete": false
+        },
+        "Prompt__standard__SalesCloudCoreOpportunitiesTab": {
+            "serverRevisionCounter": 297,
+            "lastRetrievedFromServer": null,
+            "memberType": "Prompt",
+            "isNameObsolete": false
+        },
+        "Prompt__standard__ReleaseReadiness": {
+            "serverRevisionCounter": 299,
+            "lastRetrievedFromServer": null,
+            "memberType": "Prompt",
+            "isNameObsolete": false
+        },
+        "Flow__Form_7200_05": {
+            "serverRevisionCounter": 257,
+            "lastRetrievedFromServer": null,
+            "memberType": "Flow",
+            "isNameObsolete": false
+        }
+    }
+}

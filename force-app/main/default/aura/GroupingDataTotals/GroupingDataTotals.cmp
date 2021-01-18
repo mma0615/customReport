@@ -1,0 +1,19 @@
+<aura:component>
+    <aura:attribute name="groupingKey" type="String" description="key so we know which data to access from factMap"/>
+    <aura:attribute name="factMap" type="Object" description="all data keyed to groupings so we can pull the correct data"/>
+    <aura:attribute name="dataTotals" type="Object[]" description="rows of data from report"/>
+    <aura:handler name="init" value="{!this}" action="c.doInit"/>
+    <aura:handler name="change" action="c.doInit" value="{!v.factMap}"/>
+    
+    <!-- gives us access to edit modal -->
+    <aura:dependency resource="markup://force:editRecord" type="EVENT" />
+    <aura:iteration items="{!v.dataTotals}" var="aCell" indexVar="idx">      
+        <td style="text-align: right;">
+            <aura:if isTrue="{!v.dataTotals.length > idx + 1}">
+                {!aCell.label}
+            </aura:if>
+
+        </td>      
+    </aura:iteration>
+
+</aura:component>	
