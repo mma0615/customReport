@@ -4,7 +4,7 @@
 @isTest
 private class ReportComponentControllerTest {
     
-    @isTest(seeAllData=true) static void getReportMetadata_validIDWParms()
+    @isTest(seeAllData=true) static void testReportMetadata_validIDWParms()
     {
         List<Report> reportList = [ SELECT Id, Name FROM Report];
         for (report rptObj : reportList)
@@ -30,7 +30,7 @@ private class ReportComponentControllerTest {
         }        
     }
     
-    @isTest(seeAllData=true) static void getReportMetadata_validIDNoParms()
+    @isTest(seeAllData=true) static void testReportMetadata_validIDNoParms()
     {
         List<Report> reportList = [ SELECT Id, Name FROM Report];
         for (report rptObj : reportList)
@@ -56,7 +56,7 @@ private class ReportComponentControllerTest {
         }        
     }
 
-    @isTest static void getReportMetadata_invalidID()
+    @isTest static void testReportMetadata_invalidID()
     {
         Id bogusId = '00Q000000000000';
         NoDataFoundException expectedEx;
@@ -74,5 +74,29 @@ private class ReportComponentControllerTest {
 
         System.assertEquals( null, reportJSON, 'No report json should be returned' );
         System.assertNotEquals( null, expectedEx, 'An exception should been thronw to be handled by the front-end' );
+    }
+    
+    @isTest(seeAllData=true) static void testTabularReportVFPage()
+    {
+        Report reportObj = [ SELECT Id, Name FROM Report where Format='Tabular' limit 1];
+
+        ApexPages.currentPage().getParameters().put('reportId', reportObj.Id);
+        ApexPages.currentPage().getParameters().put('recordId', null);
+        ApexPages.currentPage().getParameters().put('showDetails', 'true');
+        
+        ReportComponentController vfP = new ReportComponentController();
+        
+    }
+    
+    @isTest(seeAllData=true) static void testSummaryReportVFPage()
+    {
+        Report reportObj = [ SELECT Id, Name FROM Report where Format='Summary' limit 1];
+
+        ApexPages.currentPage().getParameters().put('reportId', reportObj.Id);
+        ApexPages.currentPage().getParameters().put('recordId', null);
+        ApexPages.currentPage().getParameters().put('showDetails', 'true');
+        
+        ReportComponentController vfP = new ReportComponentController();
+        
     }
 }

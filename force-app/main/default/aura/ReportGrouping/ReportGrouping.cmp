@@ -6,7 +6,8 @@
     <aura:attribute name="fieldLabel" type="String" description="label for grouping for display"/>
     <aura:attribute name="numColumns" type="Integer" description="number of columns to display so we can make our td wide enough"/>
     <aura:attribute name="numTotalColumns" type="Integer" description="number of total columns to display so we can make our td wide enough"/>
-
+    <aura:attribute name="showSubTotals" type="Boolean" description="Show Subtotal true/false"/>
+    
     <!-- handlers to load data, things aren't always ready on load, so also adding listeners when initial data is ready -->
     <aura:handler name="init" action="c.setLabel" value="{!this}"/>
     <aura:handler name="change" action="c.setLabel" value="{!v.groupingLevelToLabel}"/>
@@ -14,18 +15,20 @@
     <aura:iteration items="{!v.groupings}" var="aGrouping">
         <tr class="{!'level-row-'+v.level}">
             <!-- quick way to check if this is a lookup field so we can handle differently -->
-            <td colspan="{!v.numColumns - v.numTotalColumns + 1}" class="{!'level-col-'+v.level}">
+            <td colspan="{!v.numColumns - v.numTotalColumns}" class="{!'level-col-'+v.level}">
                 <span class="fieldLabel">{!v.fieldLabel}</span> : 
                 <aura:if isTrue="{! (aGrouping.value != aGrouping.label) &amp;&amp; (aGrouping.value.length == 15 || aGrouping.value.length == 18)}">
                     <a href="{!'/'+aGrouping.value}" target="_blank">{!aGrouping.label}</a>
                     <aura:set attribute="else">
                         {!aGrouping.label}
                     </aura:set>
-                </aura:if> 
+                </aura:if>
             </td>
 
             <!-- Adding total fields -->
-            <c:GroupingDataTotals groupingKey="{!aGrouping.key}" factMap="{!v.factMap}"/>
+            <c:GroupingDataTotals groupingKey="{!aGrouping.key}" 
+                factMap="{!v.factMap}" 
+                showSubTotals="{!v.showSubTotals}"/>        
 
         </tr>
         <!-- if the are more groupings, recurse downwards -->
@@ -33,7 +36,8 @@
             <c:ReportGrouping 
                 numColumns="{!v.numColumns}"
                 groupings="{!aGrouping.groupings}" 
-                level="{!v.level+1}" 
+                level="{!v.level+1}"
+                showSubTotals="{!v.showSubTotals}"
                 groupingLevelToLabel="{!v.groupingLevelToLabel}" 
                 factMap="{!v.factMap}"/>
         </aura:renderIf>

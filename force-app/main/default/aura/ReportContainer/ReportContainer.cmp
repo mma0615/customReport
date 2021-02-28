@@ -8,6 +8,7 @@
     <aura:attribute name="factMap" type="Object" description="Holds row detail data for easier access in controller"/>
     <aura:attribute name="reportIdAttribute" type="String" description="Id for the report to display"/>
     <aura:attribute name="showDetails" type="Boolean" description="Show detail true/false"/>
+    <aura:attribute name="showSubTotals" type="Boolean" description="Show Subtotal true/false"/>
     <aura:attribute name="columnLabels" type="String[]" description="Labels of columns, order is assumed"/>
     <aura:attribute name="recordId" type="Id" />
 
@@ -36,11 +37,19 @@
         
         <!-- holds report data -->
         <div aura:id="report" class="report-container slds-hide slds-p-around_small">
-            <!-- display title and button to refresh component -->
-            <h1 class="slds-section__title">
-                <a href="{!'/'+v.reportIdAttribute}" target="_blank">{!v.reportData.reportMetadata.name}</a>
-                &nbsp;&nbsp;&nbsp;<lightning:buttonIcon iconName="utility:refresh" variant="bare" onclick="{!c.getReport}" alternativeText="Refresh Report" />
-            </h1>
+            <table class="slds-table slds-table--bordered">
+                <!-- display title and button to refresh component -->
+                <td>
+                    <h1 class="slds-section__title">
+                        <a href="{!'/'+v.reportIdAttribute}" target="_blank">{!v.reportData.reportMetadata.name}</a>
+                        &nbsp;&nbsp;&nbsp;<lightning:buttonIcon iconName="utility:refresh" variant="bare" onclick="{!c.getReport}" alternativeText="Refresh Report" />    
+                    </h1>
+                </td>
+                <td style="text-align: right;">
+                    <lightning:button label="Save To PDF" onclick="{!c.saveToPDF}" />
+                </td>
+            </table>
+            
             <table class="slds-table slds-table--bordered">
                 
                 <!-- iterate through and display in header row -->
@@ -59,7 +68,8 @@
                         <c:ReportGrouping 
                             numColumns="{!v.reportData.reportMetadata.detailColumns.length}"
                             groupings="{!v.reportData.groupingsDown.groupings}" 
-                            level="0" 
+                            level="0"
+                            showSubTotals="{!v.showSubTotals}" 
                             groupingLevelToLabel="{!v.groupingLevelToLabel}" 
                             factMap="{!v.factMap}"/>
                         <!-- else if there are no groupings, just display row data -->

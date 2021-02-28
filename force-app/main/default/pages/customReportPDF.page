@@ -1,0 +1,67 @@
+<apex:page controller="ReportComponentController" renderAs="PDF" showHeader="false" applyBodyTag="false" applyHtmlTag="false">
+    <head>
+        <Style>
+            td { padding-left: 10px;
+               }
+
+            @page {
+                    size: A4 landscape;;
+                    margin-top: 2cm;
+                    margin-bottom: 2cm;
+                    margin-left: 3cm;
+                    margin-right: 3cm;
+
+                    @top-center {
+                        content: element(header);
+                    }
+                    @bottom-left {
+                        content: element(footer);
+                    }
+                }        
+                       
+            div.header {
+                    position: running(header);
+                }
+            div.footer {
+                    display: block;
+                    position: running(footer);
+                }
+            .pagenumber:before {
+                    content: counter(page);
+                }
+            .pagecount:before {
+                    content: counter(pages);
+                }
+        </Style>
+    </head>
+    
+    <table>
+        <!-- Report title -->
+        <div class="header">
+            <div style="text-align:center">
+                <h1><apex:outputText value="{!reportName}"/></h1>
+            </div>
+        </div>
+        
+        <div class="content">
+            <!-- Column Header -->
+            <tr>
+                <apex:repeat var="label" value="{!reportHeaders}">
+                    <td style="text-align: right;">
+                        <b><apex:outputText value="{!label}" /></b>
+                    </td>
+                </apex:repeat> 
+            </tr>
+            <!-- Report Detail line -->        
+            <apex:repeat var="aRow" value="{!recordList}">
+                <tr>
+                    <apex:repeat var="afield" value="{!aRow}">
+                        <td style="text-align: right;">
+                            <apex:outputText value="{!afield}" />
+                        </td>
+                    </apex:repeat>
+                </tr>
+            </apex:repeat>
+        </div>
+    </table>
+</apex:page>

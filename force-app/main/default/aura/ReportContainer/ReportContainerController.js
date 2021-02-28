@@ -21,7 +21,7 @@
         action.setCallback(this, function(response){
             // transform into JSON object
             var returnValue = JSON.parse(response.getReturnValue());
-           // console.log('response.getReturnValue(): ' + response.getReturnValue());
+            console.log('response.getReturnValue(): ' + response.getReturnValue());
             var groupingLabels = {};
             
             if( returnValue && returnValue.reportExtendedMetadata ){
@@ -38,7 +38,8 @@
                     }
                 }
                 // set lightning attributes so we have access to variables in the view
-                component.set("v.groupingLevelToLabel", groupingLabels)
+                component.set("v.groupingLevelToLabel", groupingLabels);
+                console.log('groupingLabels: ' + JSON.stringify(groupingLabels));
                 component.set("v.reportData", returnValue);
                 component.set("v.factMap", returnValue.factMap);
                 //console.log('returnValue.factMap: ' + JSON.stringify(returnValue.factMap));
@@ -51,7 +52,7 @@
                     tableHeaders.push(fieldLabel)
                 }
                 component.set("v.columnLabels", tableHeaders);
-                //console.log('tableHeaders: ' + tableHeaders);
+                console.log('tableHeaders: ' + tableHeaders);
                 
                 //hide spinner, reveal data
                 $A.util.addClass(loadingSpinner, 'slds-hide');
@@ -63,5 +64,32 @@
             }
         })
         $A.enqueueAction(action);
+    },
+
+    saveToPDF: function(component, event, helper) {
+        
+        // Show spinner once button is pressed
+        var spinner = component.find('spinner');
+        $A.util.removeClass(spinner, 'slds-hide');
+
+        // Build url for Visualforce page
+        var vfURL = '/apex/customReportPDF?reportId=' + component.get("v.reportIdAttribute") + 
+        '&recordId=' + component.get("v.recordId") +
+        '&showDetails=' + component.get("v.showDetails");
+        console.log("vfURL: ", vfURL);
+          
+        window.open(vfURL, '_blank');
+
+        /*
+        var urlEvent = $A.get("e.force:navigateToURL");
+        urlEvent.setParams({
+            "url": vfURL
+        });
+        urlEvent.fire();
+        */
+
     }
+    
+
+    
 })
